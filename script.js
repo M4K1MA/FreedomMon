@@ -117,7 +117,7 @@ async function openDetail(id) {
   else if (fileType === 'video') viewerContent = `<video src="${esc(post.url)}" controls autoplay playsinline></video>`;
   else if (fileType === 'audio') viewerContent = `<div class="player-container"><audio controls><source src="${esc(post.url)}" type="${esc(post.mime_type)}">Browser tidak mendukung audio.</audio></div>`;
   else if (fileType === 'document') viewerContent = `<iframe src="${esc(post.url)}" style="width:100%;height:70vh;border:none"></iframe>`;
-  else viewerContent = `<div class="doc-viewer"><i class="fa-solid fa-box"></i><h3>Pratinjau tidak tersedia</h3><p>Silakan unduh file untuk melihat konten.</p></div>`;
+  else viewerContent = `<div class="doc-viewer"><i class="fa-solid fa-box"></i><h3>Pratinjau tidak tersedia/Spam</h3><p>Hati-hati dengan file ini.</p></div>`;
 
   viewer.innerHTML = viewerContent;
   dTitle.textContent = post.title || '(Tanpa judul)';
