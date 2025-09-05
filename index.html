@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Freedom Web</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar" id="sidebar">
+      <button class="close-mobile" id="closeSidebar"><i class="fa-solid fa-xmark"></i></button>
+      <div class="brand"><i class="fa-solid fa-fire-flame-curved"></i> Freedom Web</div>
+      <div class="profile-card">
+        <img src="https://api.dicebear.com/8.x/initials/svg?seed=FW" alt="Profile" />
+        <h4>Pengguna Anonim</h4>
+        <small class="muted">Selamat datang!</small>
+      </div>
+      <nav class="nav">
+        <a href="#all" class="active" data-filter="all"><i class="fa-solid fa-compass"></i> Jelajahi</a>
+        <a href="#videos" data-filter="video"><i class="fa-solid fa-film"></i> Video</a>
+        <a href="#images" data-filter="image"><i class="fa-regular fa-image"></i> Gambar</a>
+        <a href="#audio" data-filter="audio"><i class="fa-solid fa-music"></i> Audio</a>
+        <a href="#document" data-filter="document"><i class="fa-solid fa-file"></i> Dokumen</a>
+      </nav>
+      <button id="openUploader" class="btn"><i class="fa-solid fa-cloud-arrow-up"></i> Unggah Konten</button>
+      <div class="copyright" style="margin-top:auto">Copyright © <a href="https://github.com/M4K1MA" target="_blank">M4K1MA</a></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="header">
+        <i class="fa-solid fa-bars menu-btn" id="menuBtn"></i>
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input id="q" placeholder="Cari judul atau caption..." />
+        </div>
+        <button id="toggleTheme" class="btn btn-ghost"><i class="fa-solid fa-sun"></i></button>
+      </header>
+      <div class="grid-container" id="grid"></div>
+    </main>
+  </div>
+
+  <div id="detailModal" class="modal-backdrop">
+    <div class="modal">
+      <header class="modal-header">
+        <strong>Postingan</strong>
+        <button id="closeDetail" class="btn btn-ghost"><i class="fa-solid fa-xmark"></i></button>
+      </header>
+      <div class="modal-content">
+        <div class="media-viewer" id="viewer"></div>
+        <div class="info-panel">
+          <h2 id="dTitle"></h2>
+          <p id="dDesc"></p>
+          <div class="card-meta"><i class="fa-regular fa-user"></i> <span id="dUser"></span> • <i class="fa-regular fa-clock"></i> <span id="dDate"></span></div>
+          <a id="downloadBtn" class="action-btn" download><i class="fa-solid fa-download"></i> Download</a>
+          <h3>Komentar</h3>
+          <div id="comments" class="comment-list"></div>
+          <input id="cAuthor" class="input" placeholder="Nama (opsional)" />
+          <textarea id="cContent" placeholder="Tulis komentar..."></textarea>
+          <button id="sendComment" class="btn"><i class="fa-regular fa-paper-plane"></i> Kirim</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="uploaderModal" class="modal-backdrop">
+    <div class="modal">
+      <header class="modal-header">
+        <strong>Unggah Postingan</strong>
+        <button id="closeUploader" class="btn btn-ghost"><i class="fa-solid fa-xmark"></i></button>
+      </header>
+      <div class="modal-content">
+        <input id="file" type="file" class="uploader" accept="video/*,image/*,audio/*,.pdf,.doc,.docx,.txt" hidden />
+        <button id="chooseFile" class="btn"><i class="fa-regular fa-folder-open"></i> Pilih File</button> <span id="fileName" class="muted"></span>
+        <input id="title" class="input" placeholder="Judul" />
+        <textarea id="description" placeholder="Deskripsi / caption..."></textarea>
+        <input id="uploaderName" class="input" placeholder="Nama pengunggah (opsional)" />
+        <button id="upload" class="btn"><i class="fa-solid fa-cloud-arrow-up"></i> Unggah</button>
+        <div id="status" class="muted"></div>
+        <div class="upload-progress"><div class="progress-bar" id="progressBar"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="commentModal" class="modal-backdrop">
+  <div class="modal">
+    <header class="modal-header">
+      <strong>Komentar</strong>
+      <button id="closeCommentModal" class="btn btn-ghost"><i class="fa-solid fa-xmark"></i></button>
+    </header>
+    <div class="modal-content">
+      <div id="commentsContainer">
+        <h3>Komentar</h3>
+        <div id="comments" class="comment-list"></div>
+        <input id="cAuthor" class="input" placeholder="Nama (opsional)" />
+        <textarea id="cContent" placeholder="Tulis komentar..."></textarea>
+        <button id="sendComment" class="btn"><i class="fa-regular fa-paper-plane"></i> Kirim</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js"></script>
+</body>
+</html>
