@@ -76,9 +76,6 @@ function cardHTML(p) {
         <div class="card-meta">
           <i class="fa-regular fa-user"></i> ${esc(p.uploader || 'Anonim')}
         </div>
-        <div class="card-actions">
-          <span class="action-btn"><i class="fa-regular fa-comment"></i> <span>${p.comment_count || 0}</span></span>
-        </div>
       </div>
     </article>
   `;
